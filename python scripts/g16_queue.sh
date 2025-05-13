@@ -14,7 +14,7 @@ cleanup(){
     echo "$1"
 }
 IFS=' '
-
+counter=0 
 for command in "${commands[@]}"; do
     echo "$command"
     sleep 10
@@ -30,6 +30,14 @@ for command in "${commands[@]}"; do
     else
     log "Failed $command"
     fi
-    sleep 300
+    
+    ((counter++))  # Increment counter
+    if [[ $counter -eq 17 ]]; then
+        log "15 commands executed successfully. Shutting down..."
+        poweroff
+    	break
+    else
+	sleep 300
+    fi
 done
 
