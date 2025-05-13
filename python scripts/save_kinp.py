@@ -18,18 +18,20 @@ atom = Point(x=227, y=111)
 
 
 def save(state,point,coordinate):
-    if state <=3:
+    if 1<= state <=5:
         if point == 1:
             click(home)
             click(file_name)
-            typewrite(f'/home/loki/Research/Ethyl_propiolate/Ethyl_prop_planar/Transition_states/Addition/ts{state}_irc_points/TS{state}_IRC_POINT0{point}.log')
+            typewrite(f'/home/loki/Research/Ethyl_Propiolate/Ethyl_prop_non-planar/Transition_states/Addition/ts{state}add_irc_points/TS{state}add_IRC_POINT0{point}.log')
             hotkey('enter')
             time.sleep(1)
             typewrite(coordinate)
             hotkey('enter')
+        
+
         elif 1 < point < 10:
             click(file_name)
-            typewrite(f'TS{state}_IRC_POINT0{point}.log')
+            typewrite(f'TS{state}add_IRC_POINT0{point}.log')
             hotkey('enter')
             time.sleep(1)
             typewrite(coordinate)
@@ -37,33 +39,85 @@ def save(state,point,coordinate):
             
         else:
             click(file_name) 
-            typewrite(f'TS{state}_IRC_POINT{point}.log')
+            typewrite(f'TS{state}add_IRC_POINT{point}.log')
             hotkey('enter')
             time.sleep(1)
             typewrite(coordinate)
             hotkey('enter')
-            
     
-    elif state >3:
-        if point==1:
+    elif 6<= state <=8:
+        if point == 1:
             click(home)
             click(file_name)
-            typewrite(f'/home/loki/Research/Ethyl_propiolate/Ethyl_prop_planar/Transition states/Abstraction/ts{state}_irc_points/TS{state}_IRC_POINT0{point}.log')
+            typewrite(f'/home/loki/Research/Ethyl_Propiolate/Ethyl_prop_non-planar/Transition_states/Abstraction/ts{state}abs_irc_points/TS{state}abs_IRC_POINT0{point}.log')
             hotkey('enter')
-            time.sleep(1)           
+            time.sleep(1)
             typewrite(coordinate)
             hotkey('enter')
 
         elif 1 < point < 10:
             click(file_name)
-            typewrite(f'TS{state}_IRC_POINT0{point}.log')
+            typewrite(f'TS{state}abs_IRC_POINT0{point}.log')
             hotkey('enter')
             time.sleep(1)
             typewrite(coordinate)
             hotkey('enter')
         else:
+            click(file_name) 
+            typewrite(f'TS{state}abs_IRC_POINT{point}.log')
+            hotkey('enter')
+            time.sleep(1)
+            typewrite(coordinate)
+            hotkey('enter')
+
+    
+    elif 9<= state <=11:
+        if point == 1:
+            click(home)
             click(file_name)
-            typewrite(f'TS{state}_IRC_POINT{point}.log')
+            typewrite(f'/home/loki/Research/Ethyl_Propiolate/Ethyl_prop_planar/Transition_states/Addition/ts{state}add_irc_points/TS{state}add_IRC_POINT0{point}.log')
+            hotkey('enter')
+            time.sleep(1)
+            typewrite(coordinate)
+            hotkey('enter')
+        
+        elif 1 < point < 10:
+            click(file_name)
+            typewrite(f'TS{state}add_IRC_POINT0{point}.log')
+            hotkey('enter')
+            time.sleep(1)
+            typewrite(coordinate)
+            hotkey('enter')
+            
+        else:
+            click(file_name) 
+            typewrite(f'TS{state}add_IRC_POINT{point}.log')
+            hotkey('enter')
+            time.sleep(1)
+            typewrite(coordinate)
+            hotkey('enter')
+    
+    elif 12<= state <=14:
+        if point == 1:
+            click(home)
+            click(file_name)
+            typewrite(f'/home/loki/Research/Ethyl_Propiolate/Ethyl_prop_planar/Transition_states/Abstraction/ts{state}abs_irc_points/TS{state}abs_IRC_POINT0{point}.log')
+            hotkey('enter')
+            time.sleep(1)
+            typewrite(coordinate)
+            hotkey('enter')
+        
+        elif 1 < point < 10:
+            click(file_name)
+            typewrite(f'TS{state}abs_IRC_POINT0{point}.log')
+            hotkey('enter')
+            time.sleep(1)
+            typewrite(coordinate)
+            hotkey('enter')
+            
+        else:
+            click(file_name) 
+            typewrite(f'TS{state}abs_IRC_POINT{point}.log')
             hotkey('enter')
             time.sleep(1)
             typewrite(coordinate)
@@ -71,7 +125,7 @@ def save(state,point,coordinate):
     
         
 
-for state in range(5,6):
+for state in range(14,15):
     click(session)
     click(close)
     hotkey('enter')
@@ -89,7 +143,9 @@ for state in range(5,6):
     for point in range(1,22):
         save(state,point,coordinate[i])
         i+=1
+
     click(home)
     click(file_name)
     typewrite(f'TS{state}_PATH')
-    input("press enter to continue")
+    input('press enter to continue')
+    time.sleep(3)

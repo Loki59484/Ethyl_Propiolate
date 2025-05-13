@@ -19,13 +19,16 @@ for files in os.walk(dir, topdown=True):
                             _,_,energy1 = item.partition('=')
                     target = open(target_file,'r')
                     temp = target.readlines()
-                    target.close()
+                    target.close()                    
                     for linenum,lines in enumerate(temp):
                         if "Sum of electronic and zero-point Energies" in lines:
                             _,_,energy  = lines.partition('=')  
                             energy = energy.lstrip()
-                            print(lines)
-                            newline =lines.replace(energy,energy1)
-                            print(newline)                          
-                     
+                            print('old = ',temp[linenum])
+                            newline =lines.replace(energy,energy1+'\n')
+                            temp[linenum] = newline
+                            print('new = ',temp[linenum])                          
+                    with open(target_file,'w') as output_file:
+                        output_file.writelines(temp)
+
 print(i)

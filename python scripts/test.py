@@ -1,1 +1,1 @@
-file = open('/home/loki/Research/Algo/NOTES.txt','r')
+print('%d'%222)

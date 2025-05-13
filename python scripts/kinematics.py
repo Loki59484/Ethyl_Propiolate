@@ -1,7 +1,6 @@
 from pyautogui import *
 import time
 import os
-from pynput import keyboard
 os.system('clear')
 
 time.sleep(5)       
@@ -12,17 +11,25 @@ calc = Point(x=201, y=86)
 vtst = Point(x=230, y=245) #vtst/eck
 bimol = Point(x=313, y=257)
 save_as = Point(x=109, y=172)
-dir = '/home/loki/Research/kisthelp_input_files/planar/' #planar
-#dir = '/home/loki/Research/kisthelp_input_files/non-planar/' #non-planar
+dir = '/home/loki/Research/Ethyl_Propiolate/kisthelp_input_files/'
 
 dict = {
-    '1' : '154.77164970',
-    '2'	: '178.75690495',
-    '3' : '167.99051710',
-    '4'	: '20.93836250',
-    '5'	: '75.98538315',
-    '6'	: '78.75134740'
-    }
+'1' :	'135.43641750',
+'2' :	'182.54287595',
+'3' :	'124.21319265',
+'4' :	'182.50611895',
+'5' :	'181.80301005',
+'6' :	'19.70227710',
+'7' :	'90.05071175',
+'8' :	'78.64974055',
+'9' :	'154.77164970',
+'10' :	'178.75690495',
+'11' :	'167.99051710',
+'12' :	'20.93836250',
+'13' :	'75.98538315',
+'14' :	'78.75134740',
+'15' :  '134.79815845' #use path 4
+}
 
 def calc_tst(R1,R2,path,state):
     print(f'vtst-eck calculation started for {path}')
@@ -48,18 +55,16 @@ def calc_tst(R1,R2,path,state):
     time.sleep(3)
     click(session)
     click(save_as)
-    typewrite(f'/home/loki/Research/VTST-ECK/planar/TS{state}_VTST-ECK')
-#    typewrite(f'/home/loki/Research/VTST-ECK/non-planar/TS{state}_VTST-ECK')
+    typewrite(f'/home/loki/Research/Ethyl_Propiolate/VTST-ECK/TS{state}_VTST-ECK')
     hotkey('enter')
 
-for state in range(5,6):
-    if state==10:
-        pass
+for state in range(13,14):
+    click(session)
+    click(close)
+    hotkey('enter')
+    click(session)
+    click(new)
+    if state<9:         
+        calc_tst(dir+'ethyl_propiolate_non_planar_m062.out',dir+'OH-radical_m062.out',dir+f'TS{state}_PATH.kinp', state) #non_planar
     else:
-        click(session)
-        click(close)
-        hotkey('enter')
-        click(session)
-        click(new)        
-        calc_tst(dir+'ETHYL_PROPIOLATE_PLANAR_m062x.LOG',dir+'OH-radical_m062.out',dir+f'TS{state}_PATH.kinp',state) #planar   
-#        calc_tst(dir+'ethyl_propiolate_non_planar_m062.out',dir+'OH-radical_m062.out',dir+f'TS{state}_PATH.kinp',state) #non_planar
+        calc_tst(dir+'ETHYL_PROPIOLATE_PLANAR_m062x.LOG',dir+'OH-radical_m062.out',dir+f'TS{state}_PATH.kinp', state) #planar   
