@@ -65,6 +65,6 @@ for state in range(13,14):
     click(session)
     click(new)
     if state<9:         
-        calc_tst(dir+'ethyl_propiolate_non_planar_m062.out',dir+'OH-radical_m062.out',dir+f'TS{state}_PATH.kinp', state) #non_planar
+        calc_tst(dir+'ethyl_propiolate_non_planar_m062.kinp',dir+'OH-radical_m062.kinp',dir+f'TS{state}_PATH.kinp', state) #non_planar
     else:
-        calc_tst(dir+'ETHYL_PROPIOLATE_PLANAR_m062x.LOG',dir+'OH-radical_m062.out',dir+f'TS{state}_PATH.kinp', state) #planar   
+        calc_tst(dir+'ETHYL_PROPIOLATE_PLANAR_m062x.kinp',dir+'OH-radical_m062.kinp',dir+f'TS{state}_PATH.kinp', state) #planar   
