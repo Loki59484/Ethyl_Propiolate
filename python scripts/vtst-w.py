@@ -15,7 +15,7 @@ dir = '/home/loki/Research/Ethyl_Propiolate/kisthelp_input_files/'
 
 
 def calc_tst(R1,R2,path,state):
-    print(f'vtst-eck calculation started for {path}')
+    print(f'vtst-w calculation started for {path}')
     click(calc)
     time.sleep(0.5)
     click(vtst)
@@ -31,20 +31,21 @@ def calc_tst(R1,R2,path,state):
     time.sleep(1.5)
 #    hotkey('enter')
     typewrite(path)
-    hotkey('enter')
-    time.sleep(6)
+    for i in range(0,21):
+        hotkey('enter')
+    time.sleep(1)
     click(session)
     click(save_as)
-    typewrite(f'/home/loki/Research/Ethyl_Propiolate/VTST-W/TS{state}_VTST-ECK')
+    typewrite(f'/home/loki/Research/Ethyl_Propiolate/VTST-W/TS{state}_VTST-W')
     hotkey('enter')
 
-for state in range(2,15):
+for state in range(15,16):
     click(session)
     click(close)
     hotkey('enter')
     click(session)
     click(new)
-    if state<9:         
+    if state<9 or state==15:         
         calc_tst(dir+'ethyl_propiolate_non_planar_m062.kinp',dir+'OH-radical_m062.kinp',dir+f'TS{state}_PATH.kinp', state) #non_planar
     else:
         calc_tst(dir+'ETHYL_PROPIOLATE_PLANAR_m062x.kinp',dir+'OH-radical_m062.kinp',dir+f'TS{state}_PATH.kinp', state) #planar

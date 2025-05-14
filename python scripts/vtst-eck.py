@@ -49,22 +49,24 @@ def calc_tst(R1,R2,path,state):
 #    hotkey('enter')
     typewrite(path)
     hotkey('enter')
-    time.sleep(6)
+    for i in range(0,21):
+        hotkey('enter')
+    time.sleep(1)
     typewrite(dict[str(state)])
     hotkey('enter')
-    time.sleep(3)
+    time.sleep(1)
     click(session)
     click(save_as)
     typewrite(f'/home/loki/Research/Ethyl_Propiolate/VTST-ECK/TS{state}_VTST-ECK')
     hotkey('enter')
 
-for state in range(10,15):
-    click(session,interval=1)
-    click(close,interval=1)
+for state in range(2,16):
+    click(session)
+    click(close)
     hotkey('enter')
-    click(session,interval=1)
-    click(new,interval=1)
-    if state<9:         
+    click(session)
+    click(new)
+    if state<9 or state==15:         
         calc_tst(dir+'ethyl_propiolate_non_planar_m062.kinp',dir+'OH-radical_m062.kinp',dir+f'TS{state}_PATH.kinp', state) #non_planar
     else:
         calc_tst(dir+'ETHYL_PROPIOLATE_PLANAR_m062x.kinp',dir+'OH-radical_m062.kinp',dir+f'TS{state}_PATH.kinp', state) #planar   
