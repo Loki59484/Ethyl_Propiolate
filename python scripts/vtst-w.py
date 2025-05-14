@@ -39,7 +39,7 @@ def calc_tst(R1,R2,path,state):
     typewrite(f'/home/loki/Research/Ethyl_Propiolate/VTST-W/TS{state}_VTST-W')
     hotkey('enter')
 
-for state in range(15,16):
+for state in [1,8]:
     click(session)
     click(close)
     hotkey('enter')

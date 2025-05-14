@@ -125,7 +125,7 @@ def save(state,point,coordinate):
     
         
 
-for state in range(3,15):
+for state in range(8,9):
     click(session)
     click(close)
     hotkey('enter')
