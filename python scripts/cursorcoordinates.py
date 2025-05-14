@@ -28,7 +28,7 @@ i=0
 try:
     while True:
         if key_pressed==True:
-            print(f'{i} : {position()}')
+            print(f'= {position()}')
             time.sleep(0.2)  # Adjust the sleep time as needed
 except KeyboardInterrupt:
     print("Program interrupted.")
