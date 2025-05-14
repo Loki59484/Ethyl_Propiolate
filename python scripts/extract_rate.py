@@ -15,7 +15,7 @@ for files in os.walk(dir, topdown = True):
             dump = []
             for line in temp:
                 if line[:3] in arrr:
-                    dump.append(line)
+                    dump.append(line[6:])
             with open(files[0]+'/'+file,'w') as outputfile:
                 outputfile.writelines(dump)
 print(i)
