@@ -5,14 +5,13 @@ os.system('clear')
 i=0
 for files in os.walk(dir, topdown=True):
     for file in files[2]:
-        if file.endswith(ext) and '_IRC_POINT' in file and 'TS2a' in file:
+        if file.endswith(ext) and '_IRC_POINT' in file:
                 target_file = files[0]+'/'+ file 
                 ccsdt = files[0]+'/'+ file.lower().replace('.kinp','ccsdt.log')                
                 if os.path.exists(ccsdt):
                     try:
-                        i+=1
-                        print(files[0]+'/'+file)
-                        print(ccsdt)
+#                        print(files[0]+'/'+file)
+#                        print(ccsdt)
                         source = open(ccsdt,'r')
                         source_temp = source.read()
                         source.close()
@@ -25,13 +24,17 @@ for files in os.walk(dir, topdown=True):
                         target.close()                    
                         for linenum,lines in enumerate(temp):
                             if "*POTENTIAL ENERGY" in lines:
-                                print('old = ',temp[linenum+1])
+                                old = temp[linenum+1]
                                 temp[linenum+1] = energy+'\n'
-                                print('new = ',temp[linenum+1])                          
+                                if old==temp[linenum+1]:
+                                    print(files[0]+'/'+file)
+                                    print(ccsdt)
+                                    print(old)
+                                    print(temp[linenum+1])                   
+                                    i+=1       
                         with open(target_file,'w') as output_file:
                             output_file.writelines(temp)
                     except ValueError:
                         print(file)
                         print(ccsdt)
-                        break
 print(i)

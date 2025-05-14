@@ -104,7 +104,7 @@ hotkey('enter')
 click(session)
 click(new)    
 
-for state in range(14,15):
+for state in range(1,2):
     
     i=0
     for point in range(1,22):
