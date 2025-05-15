@@ -122,10 +122,8 @@ def save(state,point,coordinate):
             time.sleep(1)
             typewrite(coordinate)
             hotkey('enter')
-    
-        
 
-for state in range(8,9):
+for state in [5]:
     click(session)
     click(close)
     hotkey('enter')

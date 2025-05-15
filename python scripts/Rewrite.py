@@ -2,7 +2,7 @@ import os
 from pprint import *
 import numpy as np
 dir = '/home/loki/Research/Ethyl_Propiolate'
-ext = ('.log')
+ext = ('.gjf')
 i=0
 os.system("clear")
 prefixes = [
@@ -19,10 +19,10 @@ ind2 = np.flip(ind1)
 match = {str(ind1[i]).zfill(2):str(ind2[i]).zfill(2) for i in range(len(ind1))}
 for files in os.walk(dir, topdown = True):
     for file in files[2]:
-        if '_irc_points' in files[0] and 'TS1a' in file and file.endswith(ext):
-            hit = file[file.index('NT')+2:file.index('NT')+4]
+        if '_irc_points' in files[0] and 'ts5a' in file and file.endswith(ext):
+            hit = file[file.index('nt')+2:file.index('nt')+4]
             print(hit)            
-            newname = file.replace(hit,match[hit]).replace('.log','new.log')
+            newname = file.replace(hit,match[hit]).replace('.gjf','new.gjf')
             os.rename(files[0]+'/'+file,files[0]+'/'+newname)
             print(file)
             print(newname)

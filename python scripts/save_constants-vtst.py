@@ -18,7 +18,7 @@ time.sleep(3)
 
 for correction in corrections:
     dir = f'/home/loki/Research/Ethyl_Propiolate/VTST-{correction}'
-    for state in [1,8]:
+    for state in [5]:
         click(session)
         click(close)
         hotkey('enter')
