@@ -35,6 +35,6 @@ for files in os.walk(dir, topdown = True):
                     print(temp[linenum+1])
             i+=1
 
-#            with open(files[0]+'/'+file,'w') as outputfile:
-#                outputfile.writelines(temp)
+            with open(files[0]+'/'+file,'w') as outputfile:
+                outputfile.writelines(temp)
 print(i)
