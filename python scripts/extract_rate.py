@@ -1,25 +1,30 @@
 import os
 from pprint import *
 import numpy as np
-dir = '/home/loki/Research/Ethyl_Propiolate/'
-arr = np.arange(200,501,1)
-arrr = [str(x) for x in arr if any([x%25==0,x==298])]
+
+ext = ('.kstp')
 i=0
+
+dir = '/home/loki/Research/Ethyl_Propiolate/'
+
+vals = {
+    "minimum temperature :" : 200,
+    "maximum temperature :" : 500,
+    "temperature step:" : 25,
+    "statistical factor:" : 1
+}
 os.system("clear")
 for files in os.walk(dir, topdown = True):
     for file in files[2]:
-        if 'Path' in file:
+        if 'TS' in file and file.endswith(ext):
             source = open(files[0]+'/'+file,'r')
             temp = source.readlines()
             source.close()
-            dump = []
-            for line in temp:
-                if line[:3] in arrr:
-                    dump.append(line[6:])
-<<<<<<< HEAD
-                    pprint(file)
-=======
->>>>>>> 6cb2ecd5f95661d8de9dff3c49ecaeb0cba01947
+            for linenum,line in enumerate(temp):
+                if any(x in str(line) for x in ["statistical factor:","minimum temperature :","maximum temperature :",'"temperature step:']):
+                    temp[linenum+1] = vals[line.replace('\n','')] 
+                    print(temp[linenum+1])
+            i+=1
             with open(files[0]+'/'+file,'w') as outputfile:
-                outputfile.writelines(dump)
+                outputfile.writelines(str(temp))
 print(i)
