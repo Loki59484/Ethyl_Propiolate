@@ -16,7 +16,10 @@ for files in os.walk(dir, topdown = True):
             for line in temp:
                 if line[:3] in arrr:
                     dump.append(line[6:])
+<<<<<<< HEAD
                     pprint(file)
+=======
+>>>>>>> 6cb2ecd5f95661d8de9dff3c49ecaeb0cba01947
             with open(files[0]+'/'+file,'w') as outputfile:
                 outputfile.writelines(dump)
 print(i)
