@@ -18,26 +18,13 @@ time.sleep(3)
 
 for correction in corrections:
     dir = f'/home/loki/Research/Ethyl_Propiolate/'
-    for state in [5]:
+    for state in range(1,16):
         click(session)
         click(close)
         hotkey('enter')
         click(session)
         click(open)
         typewrite(f'{dir}VTST-{correction}/TS{state}_VTST-{correction}.kstp')
-        hotkey('enter')
-        click(temp)
-        hotkey('tab')
-        hotkey('ctrl','a')
-        typewrite('200')
-        hotkey('enter')
-        hotkey('tab')
-        hotkey('ctrl','a')
-        typewrite('500')
-        hotkey('enter')
-        hotkey('tab')
-        hotkey('ctrl','a')
-        typewrite('1')
         hotkey('enter')
         click(k)
         click(datas)
