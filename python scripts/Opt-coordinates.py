@@ -15,7 +15,7 @@ for files in os.walk(dir, topdown = True):
             for linenum, line in enumerate(reversed(temp)):
                 if 'Standard orientation:' in line:
                     start = len(temp)-linenum
-                    dump.append('**'+file[:-4]+'**'+'\n'+'\\')
+                    dump.append(''+file[:-4]+'\n')
                     dump = dump+temp[start:start+4]
                     for nextnum, nextline in enumerate(temp[start+4:]):
                         if "----------------------------\n" in nextline:
