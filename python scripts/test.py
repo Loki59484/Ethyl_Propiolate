@@ -21,7 +21,5 @@ for files in os.walk(dir, topdown = True):
                     temp[linenum] = '%mem=12GB\n'
                 elif '%nprocshared' in line:
                     temp[linenum] = '%nprocshared=24\n'
-                else:
-                    print(filename)                    
             with open(filename,'w') as f:
                 f.writelines(temp)
