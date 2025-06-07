@@ -14,9 +14,9 @@ for files in os.walk(dir, topdown = True):
             source = open(filename,'r')
             temp = source.readlines()
             for linenum, line in enumerate(temp):
-                if '6-31+g' in line:
+                if 'opt=(calcfc,tight,ts,noeigentest)' in line:
                         print(temp[linenum])
-                        temp[linenum]=line.replace('6-31+g','6-311++g(d,p)')
+                        temp[linenum]=line.replace('opt=(calcfc,tight,ts,noeigentest) freq 6-311++g(d,p) m062x','ccsd(t)/6-311++g** sp')
                         print(temp[linenum])
-            with open(filename,'w') as f:
+            with open(filename.replace('.gjf', 'ccsdt.gjf'),'w') as f:
                 f.writelines(temp)
