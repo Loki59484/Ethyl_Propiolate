@@ -4,7 +4,7 @@ import os
 from tqdm import tqdm
 def process_file(path,file):
     data = cclib.io.ccread(path+file)
-    head = ["%nprocshared=24\n","%mem=12GB\n","%chk=ethyl_propiolate_ts1.chk\n","# freq 6-311++g(d,p) m062x\n","\n","Title Card Required\n","\n","0 2\n"]
+    head = ["%nprocshared=24\n","%mem=12GB\n","%chk=ethyl_propiolate_ts1.chk\n","# ccsd(t)/6-311++g(d,p) sp\n","\n","Title Card Required\n","\n","0 2\n"]
     for i,coords in enumerate(tqdm(data.atomcoords, desc=f"Processing {file}",unit="point")):
         with open((path+file).replace('.log','.gjf'),'w') as output:
             output.writelines(head)
@@ -17,6 +17,5 @@ def main():
         for file in files[2]:
             if '_ircpoint' in file and '.log' in file:
                 process_file(files[0]+'/',file)
-
 if __name__ == "__main__":
     main()               
