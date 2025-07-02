@@ -12,4 +12,4 @@ g16 < "$file" | tee "${file/.gjf/ccsdt.log}"
     fi                                                                                                                                                             
  done
 git add .;git commit -m 'ccsdt ran';git push origin main
-
+find ~/ -type f -name "*.rwf" -mtime +1 -delete
