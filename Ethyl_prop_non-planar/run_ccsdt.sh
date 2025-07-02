@@ -1,7 +1,9 @@
 #!/bin/bash
 trap "echo 'Interrupted by Ctrl+C. Exiting loop.'; exit 1" SIGINT;
-''>"completed_queue.txt";
 find -name "*ircpoint*.gjf" | while read file; do                                                                                              
+if grep -Fxq $file "completed_queue.txt";then
+	continue
+fi
 echo $file >> "completed_queue.txt"
 g16 < "$file" | tee "${file/.gjf/ccsdt.log}"
     if [ $? -ne 0 ]; then
