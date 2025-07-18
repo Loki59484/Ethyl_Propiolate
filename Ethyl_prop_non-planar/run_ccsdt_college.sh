@@ -5,6 +5,11 @@ if grep -Fxq "${file/.gjf/ccsdt.log}" "completed_queue.txt";then
         continue
 fi 
 
+if grep -Fxq "${file/.gjf/ccsdt.log}" "completed_queue_college.txt";then
+        continue
+fi 
+
+
 if  [[ "$file" == *"Addition/ts1add_ircpoints"* ]];then
 echo "${file/.gjf/ccsdt.log}" >> "completed_queue_college.txt"
 g16 < "$file" | tee "${file/.gjf/ccsdt.log}"
