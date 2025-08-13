@@ -5,7 +5,7 @@ os.system('clear')
 i=0
 for files in os.walk(dir, topdown=True):
     for file in files[2]:
-        if file.endswith(ext) and '_IRC_POINT' in file:
+        if file.endswith(ext) and '_IRC_POINT' in file or 'irc_point':
                 target_file = files[0]+'/'+ file 
                 ccsdt = files[0]+'/'+ file.lower().replace('.kinp','ccsdt.log')                
                 if os.path.exists(ccsdt):
