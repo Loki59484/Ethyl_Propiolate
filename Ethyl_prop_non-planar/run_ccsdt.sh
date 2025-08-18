@@ -1,6 +1,6 @@
 #!/bin/bash
 trap "echo 'Interrupted by Ctrl+C. Exiting loop.'; exit 1" SIGINT;
-find -name "*irc*.gjf" ! -name "*irc.gjf" |sort | while read file; do                                                                                              
+find -name "*irc*ccsdt.gjf" |sort | while read file; do                                                                                              
 
 if grep -Fxq "${file/.gjf/ccsdt.log}" "completed_queue.txt";then
 	continue
